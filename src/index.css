@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Pure Black & White — dark mode only */
+    --bg-primary: #000000;
+    --bg-secondary: rgba(255, 255, 255, 0.02);
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --bg-card-hover: rgba(255, 255, 255, 0.06);
+    --bg-elevated: rgba(255, 255, 255, 0.04);
+    --bg-hero: #000000;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-muted: rgba(255, 255, 255, 0.35);
+    --text-accent: #FFFFFF;
+
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-medium: rgba(255, 255, 255, 0.12);
+    --border-strong: rgba(255, 255, 255, 0.18);
+
+    --accent: #FFFFFF;
+    --accent-hover: rgba(255, 255, 255, 0.85);
+    --accent-soft: rgba(255, 255, 255, 0.06);
+    --loader-bg: #FFFFFF;
+    --loader-fg: #000000;
+
+    --semantic-success: #FFFFFF;
+    --semantic-success-soft: rgba(255, 255, 255, 0.06);
+    --success: #FFFFFF;
+    --error: #FFFFFF;
+
+    /* Shadows */
+    --phone-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    --card-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    --card-shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+
+    /* Spacing */
+    --section-pad-y: clamp(80px, 12vw, 160px);
+    --container-max: 1200px;
+    --container-pad-x: 24px;
+    --card-radius: 20px;
+    --button-radius: 9999px;
+
+    /* shadcn compat */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 5%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 5%;
+    --muted-foreground: 0 0% 25%;
+    --destructive: 0 0% 100%;
+    --destructive-foreground: 0 0% 0%;
+    --border: 0 0% 100% / 0.06;
+    --input: 0 0% 100% / 0.10;
+    --ring: 0 0% 100%;
+    --radius: 0.625rem;
+  }
+
+  html[data-theme="light"], .light {
+    /* Warm Light Theme */
+    --bg-primary: #FFFCF9;
+    --bg-secondary: #fff6ed;
+    --bg-card: #fff6ed;
+    --bg-card-hover: #ffeedb;
+    --bg-elevated: #fffbf6;
+    --bg-hero: #FFFCF9;
+
+    --text-primary: #000000;
+    --text-secondary: rgba(0, 0, 0, 0.6);
+    --text-muted: rgba(0, 0, 0, 0.35);
+    --text-accent: #000000;
+
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --border-medium: rgba(0, 0, 0, 0.12);
+    --border-strong: rgba(0, 0, 0, 0.18);
+
+    --accent: #000000;
+    --accent-hover: rgba(0, 0, 0, 0.85);
+    --accent-soft: rgba(0, 0, 0, 0.06);
+    --loader-bg: #000000;
+    --loader-fg: #FFFFFF;
+
+    --semantic-success: #000000;
+    --semantic-success-soft: rgba(0, 0, 0, 0.06);
+    --success: #000000;
+    --error: #000000;
+
+    /* Shadows (Disabled in light mode for flat aesthetic) */
+    --phone-shadow: none;
+    --card-shadow: none;
+    --card-shadow-hover: none;
+
+    /* shadcn compat */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 96%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 96%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 75%;
+    --destructive: 0 0% 0%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 0% / 0.06;
+    --input: 0 0% 0% / 0.10;
+    --ring: 0 0% 0%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  .font-heading {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+  }
+
+  .font-serif {
+    font-family: 'Fraunces', Georgia, serif;
+  }
+
+  .font-mono {
+    font-family: 'Fragment Mono', 'JetBrains Mono', monospace;
+  }
+
+  .text-caption {
+    font-family: 'Fragment Mono', monospace;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .text-display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.0;
+  }
+
+  .font-pixel {
+    font-family: 'Pixelify Sans', monospace;
+  }
+
+  .font-pixel-retro {
+    font-family: 'Silkscreen', monospace;
+  }
+
+  .font-italic-serif {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+  }
+
+  /* Scrollbar hide */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  .will-change-transform {
+    will-change: transform;
+  }
+  .transition-smooth {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .gpu-accelerated {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+  }
+}
